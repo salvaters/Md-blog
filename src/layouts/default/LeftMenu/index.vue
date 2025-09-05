@@ -2,6 +2,7 @@
   <div class='LeftMenuPage'>
     <GlowBorder :border-radius='10' :color="['#A07CFE', '#FE8FB5', '#FFBE7B']" />
 
+    <!-- logo -->
     <div class='top-log'>
       <div class='img'><img alt='' src='../../../assets/images/user.jpg'></div>
       <div
@@ -10,6 +11,7 @@
       </div>
     </div>
 
+    <!-- search -->
     <div class='search-div'>
       <div class='NeonBorder-main'>
         <NeonBorder animationType='full' class='NeonBorder'>
@@ -22,6 +24,7 @@
       </div>
     </div>
 
+    <!-- nav -->
     <navPage />
   </div>
 </template>

@@ -1,20 +1,20 @@
 <template>
   <div class='AppPage'>
     <layouts />
-    <ParticlesBg
-      :color="isDark === 'light' ? '#a100ff' : '#ffffff'"
-      :ease='50'
-      :quantity='250'
-      :staticity='20'
-      class='absolute inset-0'
-      refresh
-    />
+    <!--    <ParticlesBg-->
+    <!--      :color="isDark === 'light' ? '#a100ff' : '#ffffff'"-->
+    <!--      :ease='50'-->
+    <!--      :quantity='250'-->
+    <!--      :staticity='20'-->
+    <!--      class='absolute inset-0'-->
+    <!--      refresh-->
+    <!--    />-->
   </div>
 </template>
 
 <script lang='ts' setup>
 import layouts from './layouts/index.vue'
-import ParticlesBg from '@/components/motion/ParticlesBg/index.vue'
+// import ParticlesBg from '@/components/motion/ParticlesBg/index.vue'
 import { useCounterStore } from './stores/counter.ts'
 import { storeToRefs } from 'pinia'
 

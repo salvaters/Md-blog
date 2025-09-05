@@ -44,14 +44,14 @@ const handleNav = (item: any) => {
       align-items: center;
       cursor: pointer;
       margin-bottom: 10px;
-      padding: 1px 6px;
+      padding: 2px 8px;
       border-radius: 6px;
-      border: 1px solid rgba(0, 0, 0, 0);
       user-select: none;
+      transition: all 0.3s;
 
 
       &:hover {
-        background-color: var(--color-border-hover);
+        background-color: var(--left-menu-hover-attr);
       }
 
       .img {
@@ -66,7 +66,8 @@ const handleNav = (item: any) => {
     }
 
     .item-nav-active {
-      border: 1px solid red;
+      transition: all 0.3s;
+      background: linear-gradient(45deg, var(--left-menu-active-attr-1), var(--left-menu-active-attr-3), var(--left-menu-active-attr-2));
     }
   }
 }

@@ -38,6 +38,20 @@
   --left-menu-search-1-d: #302b63;
   --left-menu-search-2-d: #24243e;
   /* 左侧导航搜索背景 end */
+
+
+  /* 左侧导航选中-停留 start */
+  --left-menu-active-1: #fcfaf0;
+  --left-menu-active-1: rgba(249, 182, 117, 0.4);
+  --left-menu-active-2: rgba(160, 105, 253, 0.4);
+  --left-menu-active-3: #fcfaf1;
+
+  --left-menu-hover-d: rgba(240, 161, 165, 0.8);
+  --left-menu-active-1-d: rgba(240, 161, 165, 0.8);
+  --left-menu-active-2-d: rgba(147, 120, 237, 0.8);
+  --left-menu-active-3-d: rgba(116, 156, 181, 0.8);
+  /* 左侧导航选中-停留 end */
+
 }
 
 /* 此项目的语义颜色变量 */
@@ -60,6 +74,10 @@
 
   --left-menu-search-attr-1: var(--left-menu-search-1);
   --left-menu-search-attr-2: var(--left-menu-search-2);
+
+  --left-menu-active-attr-1: var(--left-menu-active-1);
+  --left-menu-active-attr-2: var(--left-menu-active-2);
+  --left-menu-active-attr-3: var(--left-menu-active-3);
 }
 
 /* light */
@@ -94,6 +112,12 @@
 
   --left-menu-search-attr-1: var(--left-menu-search-1-d);
   --left-menu-search-attr-2: var(--left-menu-search-2-d);
+
+  --left-menu-hover-attr: var(--left-menu-hover-d);
+
+  --left-menu-active-attr-1: var(--left-menu-active-1-d);
+  --left-menu-active-attr-2: var(--left-menu-active-2-d);
+  --left-menu-active-attr-3: var(--left-menu-active-3-d);
 }
 
 
