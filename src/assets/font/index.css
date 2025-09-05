@@ -1,0 +1,45 @@
+@font-face {
+  font-family: 'liner';
+  src: url("linear.woff2") format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: AaSongLiuKaiTi-2;
+  src: url("AaSongLiuKaiTi-2.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: ywfont;
+  src: url("ywfont.woff2") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*@font-face {*/
+/*  font-family: 'subset117';*/
+/*  src: url("lxgwwenkaiscreen-subset-117.woff2") format('truetype');*/
+/*  font-weight: normal;*/
+/*  font-style: normal;*/
+/*  font-display: swap;*/
+/*}*/
+
+/*@font-face {*/
+/*  font-family: 'subset101';*/
+/*  src: url("lxgwwenkaigbscreen-subset-101.woff2") format('truetype');*/
+/*  font-weight: normal;*/
+/*  font-style: normal;*/
+/*  font-display: swap;*/
+/*}*/
+
+
+
+
+
