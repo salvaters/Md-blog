@@ -1,119 +1,468 @@
-//.ant-typography pre {
-//  padding: unset;
-//  white-space: pre-wrap;
-//  word-wrap: break-word;
-//  border: unset;
-//  border-radius: unset;
-//}
-
-@import "typora-vue-theme-master/vue.css";
-//@import "Mdmdt-main/mdmdt.css";
-//@import "Mdmdt-main/mdmdt-dark.css";
-//@import "typora-vue-theme-master/vue-dark.css";
-//@import 'github-markdown-css/github-markdown.css';
-
-
-/*.markdown-content {
+// 主题适配的Markdown样式
+.markdown-content {
+  // 标题样式 - 使用自定义主题色
   h1 {
-    font-size: 40px;
+    font-size: 1.8em;
+    margin: 30px 0 20px 0;
+    color: var(--color-heading, #000);
+    font-weight: 700;
+    border-bottom: 3px solid var(--color-primary, #613e97);
+    padding-bottom: 10px;
+    position: relative;
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 80px;
+      height: 3px;
+      background: var(--gradient-primary);
+      border-radius: 2px;
+    }
   }
 
   h2 {
-    font-size: 35px;
+    font-size: 11em;
+    margin: 25px 0 15px 0;
+    color: var(--color-heading, #000);
+    font-weight: 600;
+    //border-left: 5px solid var(--color-secondary, #8f55d0);
+    //padding-left: 15px;
+    background: var(--color-bg-elevated, red);
+    padding: 12px 15px;
+    //border-radius: 0 8px 8px 0;
+    transition: all 0.3s ease;
+    //border: 1px solid var(--color-border, #ded0f2);
+    border-radius: 10px;
+
+    &:hover {
+      transition: all 0.3s ease;
+      background: var(--gradient-primary);
+      color: white;
+      //transform: translateX(5px);
+      box-shadow: var(--shadow-primary);
+    }
   }
 
   h3 {
-    font-size: 30px;
+    font-size: 1.5em;
+    margin: 20px 0 12px 0;
+    color: var(--color-accent, #4765a7);
+    font-weight: 600;
+    position: relative;
+    padding-left: 25px;
+    transition: all 0.3s ease;
+
+    &::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--color-secondary, #8f55d0);
+      font-weight: bold;
+      font-size: 1.5em;
+      transition: all 0.3s ease;
+      top: -10px;
+    }
+
+    &:hover {
+      color: var(--color-secondary, #8f55d0);
+      //transform: translateX(5px);
+
+      &::before {
+        //transform: translateX(3px) rotate(90deg);
+        color: var(--color-primary, #613e97);
+      }
+    }
   }
 
   h4 {
-    font-size: 25px;
+    font-size: 1.2em;
+    margin: 18px 0 10px 0;
+    color: var(--color-heading, #000);
+    font-weight: 500;
+    border-bottom: 1px solid var(--color-border, #e1e4e8);
+    padding-bottom: 5px;
   }
 
   h5 {
-    font-size: 20px;
+    font-size: 1.1em;
+    margin: 15px 0 8px 0;
+    color: var(--color-heading, #000);
+    font-weight: 500;
   }
 
   h6 {
-    font-size: 18px;
+    font-size: 1em;
+    margin: 12px 0 6px 0;
+    color: var(--color-text-secondary, #666);
+    font-weight: 500;
   }
 
-  //p,
-  //li {
-  //  //line-height: 28px;
-  //  //font-size: 16px;
-  //
-  //  code {
-  //    background: #dbdbe8;
-  //    padding: 2px 6px;
-  //    border-radius: 5px;
-  //  }
-  //}
+  // 段落样式
+  p {
+    margin: 15px 0;
+    line-height: 1.8;
+    color: var(--color-text, #333);
+    font-size: 16px;
+    text-align: justify;
 
-  //hr {
-  //  margin: 20px 0;
-  //}
+    // 行内代码样式
+    code {
+      background: var(--gradient-primary);
+      color: white;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+      font-size: 0.9em;
+      font-weight: 500;
+      box-shadow: var(--shadow-primary);
+      transition: all 0.3s ease;
+      //border: 1px solid var(--color-secondary, #8f55d0);
 
-  //ul {
-  //  margin: 15px 0;
-  //
-  //  li {
-  //    line-height: 28px;
-  //    margin-bottom: 8px;
-  //  }
-  //}
-  //
-  //ol {
-  //  margin: 15px 0;
-  //
-  //  li {
-  //    line-height: 28px;
-  //    margin-bottom: 10px;
-  //  }
-  //}
+      &:hover {
+        background: var(--gradient-secondary);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-secondary);
+      }
+    }
+  }
 
+  // 引用块样式
+  blockquote {
+    margin: 20px 0;
+    padding: 20px 25px;
+    border-left: 6px solid var(--color-secondary, #8f55d0);
+    background: var(--gradient-secondary);
+    border-radius: 0 12px 12px 0;
+    position: relative;
+    color: var(--color-text, #333);
+    box-shadow: var(--shadow-secondary);
+    transition: all 0.3s ease;
 
+    &:hover {
+      //transform: translateX(5px);
+      box-shadow: var(--shadow-primary);
+
+      &::before {
+        color: var(--color-primary, #613e97);
+        transform: rotate(10deg);
+      }
+    }
+
+    &::before {
+      content: '"';
+      position: absolute;
+      left: 15px;
+      top: 5px;
+      font-size: 3.5em;
+      color: var(--color-secondary, #8f55d0);
+      opacity: 0.4;
+      font-family: Georgia, serif;
+      transition: all 0.3s ease;
+    }
+
+    p {
+      margin: 0;
+      font-style: italic;
+      font-weight: 500;
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  // 分隔线样式
+  hr {
+    margin: 35px 0;
+    border: none;
+    height: 3px;
+    background: var(--gradient-primary);
+    position: relative;
+    border-radius: 2px;
+    box-shadow: var(--shadow-primary);
+
+    &::after {
+      content: '✦';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--color-bg-container, #fbf8ed);
+      color: var(--color-secondary, #8f55d0);
+      padding: 8px 15px;
+      font-size: 1.3em;
+      border-radius: 50%;
+      box-shadow: var(--shadow-secondary);
+      transition: all 0.3s ease;
+    }
+
+    &:hover::after {
+      color: var(--color-primary, #613e97);
+      transform: translate(-50%, -50%) rotate(180deg);
+    }
+  }
+
+  // 列表样式
+  ul, ol {
+    margin: 20px 0;
+    padding-left: 10px;
+
+    li {
+      margin: 8px 0;
+      line-height: 1.8;
+      color: var(--color-text, #333);
+      position: relative;
+
+      // 列表项中的代码
+      code {
+        background: var(--color-bg-elevated, #f6f8fa);
+        color: var(--color-primary, #1890ff);
+        padding: 2px 4px;
+        border-radius: 3px;
+        font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+        font-size: 0.9em;
+        //border: 1px solid var(--color-border, #e1e4e8);
+      }
+    }
+  }
+
+  // 无序列表美化
+  ul {
+    list-style: none;
+
+    li {
+      position: relative;
+      padding-left: 25px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        //transform: translateX(5px);
+      }
+
+      &::before {
+        content: '▸';
+        position: absolute;
+        left: 0;
+        color: var(--color-secondary, #8f55d0);
+        font-weight: bold;
+        font-size: 1.2em;
+        line-height: 1.8;
+        transition: all 0.3s ease;
+      }
+
+      &:hover::before {
+        color: var(--color-primary, #613e97);
+        //transform: translateX(3px) rotate(90deg);
+      }
+    }
+  }
+
+  // 有序列表美化
+  ol {
+    counter-reset: item;
+
+    li {
+      counter-increment: item;
+      position: relative;
+      padding-left: 30px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        //transform: translateX(5px);
+      }
+
+      &::before {
+        content: counter(item);
+        position: absolute;
+        left: 0;
+        color: white;
+        font-weight: bold;
+        font-family: 'Georgia', serif;
+        background: var(--gradient-primary);
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8em;
+        box-shadow: var(--shadow-primary);
+        transition: all 0.3s ease;
+        top: 3px;
+      }
+
+      &:hover::before {
+        background: var(--gradient-secondary);
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  // 表格样式
   table {
     width: 100%;
     border-collapse: collapse;
-    font-family: Arial, sans-serif;
-    //border-radius: 8px;
-    //overflow: hidden;
-    margin-top: 5px;
-    margin-bottom: 20px;
+    margin: 25px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-primary);
+    background: var(--color-bg-container, #fbf8ed);
+    border: 2px solid var(--color-border, #ded0f2);
+
+    th, td {
+      padding: 15px 18px;
+      text-align: left;
+      border: 1px solid var(--color-border, #ded0f2);
+      transition: all 0.3s ease;
+    }
+
+    thead {
+      background: var(--gradient-primary);
+      color: white;
+
+      th {
+        font-weight: 600;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        border-bottom: 3px solid var(--color-secondary, #8f55d0);
+        position: relative;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 3px;
+          background: var(--gradient-secondary);
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        transition: all 0.3s ease;
+
+        &:nth-child(even) {
+          background: var(--color-bg-elevated, #f7e8cf);
+        }
+
+        &:hover {
+          background: var(--gradient-secondary);
+          color: white;
+          transform: scale(1.02);
+          box-shadow: var(--shadow-secondary);
+
+          td {
+            border-color: var(--color-primary, #613e97);
+            font-weight: 500;
+          }
+        }
+      }
+    }
   }
 
-  th,
-  td {
-    padding: 8px 0;
-    text-align: center;
-    border: 1px solid #8377ae;
+  // 链接样式
+  a {
+    color: var(--color-accent, #4765a7);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    font-weight: 500;
+    padding: 2px 0;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-primary);
+      transition: width 0.3s ease;
+      border-radius: 1px;
+    }
+
+    &:hover {
+      color: var(--color-primary, #613e97);
+      transform: translateY(-1px);
+
+      &::after {
+        width: 100%;
+      }
+    }
   }
 
-  th {
-    //background-color: #f4f4f4;
-    font-weight: bold;
+  // 图片样式
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin: 25px 0;
+    box-shadow: var(--shadow-primary);
+    transition: all 0.3s ease;
+    border: 3px solid var(--color-border, #ded0f2);
+
+    &:hover {
+      transform: scale(1.03);
+      box-shadow: var(--shadow-secondary);
+      border-color: var(--color-secondary, #8f55d0);
+    }
   }
 
-  // tbody tr:nth-child(odd) {
-  //   //background-color: #f9f9f9;
-  // }
+  // 强调文本
+  strong {
+    font-weight: 700;
+    background: var(--gradient-strong);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    display: inline-block;
 
-  // tbody tr:nth-child(even) {
-  //   //background-color: #ffffff;
-  // }
+    // 添加轻微的阴影效果
+    text-shadow: 0 1px 2px rgba(105, 0, 255, 0.2);
 
-  //tbody tr:hover {
-  //  background-color: #f9f9f9;
-  //  cursor: pointer;
-  //}
+    // 悬停时的微动画
+    transition: all 0.3s ease;
 
-  //thead {
-  //  position: sticky;
-  //  top: 0;
-  //  z-index: 1;
-  //}
-}*/
+    &:hover {
+      transform: scale(1.05);
+      filter: brightness(1.2);
+    }
+  }
+
+  // 斜体文本
+  em {
+    color: var(--color-secondary, #8f55d0);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  // 删除线
+  del {
+    color: var(--color-text-tertiary, #999);
+    text-decoration: line-through;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      height: 2px;
+      background: var(--gradient-primary);
+      opacity: 0.6;
+    }
+  }
+}
 
 .hljsMain {
   border-radius: 8px;
@@ -134,8 +483,7 @@ P {
 }
 
 .code-block {
-  background: #65b787;
-  color: #ffffff;
+  background: linear-gradient(45deg, var(--left-menu-active-attr-1), var(--left-menu-active-attr-3), var(--left-menu-active-attr-2));
   justify-content: space-between;
   display: flex;
   align-items: center;

@@ -17,8 +17,8 @@
     "@rollup/plugin-yaml": "^4.1.2",
     "@tailwindcss/vite": "^4.1.11",
     "@vueuse/core": "^13.5.0",
-    "algoliasearch": "^5.30.0",
     "ant-design-vue": "^4.2.6",
+    "aos": "^2.3.4",
     "dompurify": "^3.2.6",
     "fast-glob": "^3.3.3",
     "github-markdown-css": "^5.8.1",
@@ -35,11 +35,11 @@
     "vite-plugin-dynamic-import": "^1.6.0",
     "vue": "^3.5.17",
     "vue-clipboard3": "^2.0.0",
-    "vue-instantsearch": "^4.20.8",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
     "@tsconfig/node22": "^22.0.2",
+    "@types/aos": "^3.0.7",
     "@types/highlight.js": "^9.12.4",
     "@types/markdown-it": "^14.1.2",
     "@types/marked": "^6.0.0",

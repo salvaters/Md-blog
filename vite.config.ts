@@ -24,7 +24,7 @@ export default defineConfig({
         if (!id.endsWith('.md')) return
         const { data, content } = matter(raw)
         const md = mdConfig()
-        const html = md.render(raw)
+        const html = md.render(content)
         return `export default ${JSON.stringify({
           frontmatter: data,
           html
@@ -49,6 +49,7 @@ export default defineConfig({
     include: ['highlight.js/lib/core']
   },
   server: {
+    port: 9965,
     host: '0.0.0.0' // 监听所有网络接口
   }
 })

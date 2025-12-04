@@ -1,6 +1,7 @@
 <template>
   <div class='navPage'>
     <div class='navList'>
+      <!-- 文章分类导航 -->
       <div v-for='item in navList'
            :class="`item-nav ${ item.tag === currentNav.tag ? 'item-nav-active' : ''}`"
            @click='handleNav(item)'>
@@ -14,23 +15,43 @@
 </template>
 
 <script lang='ts' setup>
+import { ref, onMounted } from 'vue'
 import Icon from '@/components/Icon/index.vue'
 import { getFilePath } from '@/layouts/default/LeftMenu/nav/index.ts'
 import { navStore } from '@/stores/navStore.ts'
 import { storeToRefs } from 'pinia'
+import { useRouter } from 'vue-router'
 
-let { navList } = getFilePath()
-
+const router = useRouter()
 const store = navStore()
-
 const { currentNav } = storeToRefs(store)
 
-// 点击
+// 响应式数据
+let navList = ref<any[]>([])
+let categories = ref<string[]>([])
+
+// 点击导航
 const handleNav = (item: any) => {
   store.setCurrentNav(item)
+  // 跳转到首页显示对应的文章分类
+  router.push({ name: 'home' })
 }
 
+// 加载导航数据
+const loadNavigation = async () => {
+  try {
+    const result = await getFilePath()
+    navList.value = result.navList
+    categories.value = result.categories
+  } catch (error) {
+    console.error('加载导航数据失败:', error)
+  }
+}
 
+// 组件挂载时加载数据
+onMounted(() => {
+  loadNavigation()
+})
 </script>
 
 <style lang='less' scoped>
@@ -51,7 +72,7 @@ const handleNav = (item: any) => {
 
 
       &:hover {
-        background-color: var(--left-menu-hover-attr);
+        opacity: 0.8;
       }
 
       .img {

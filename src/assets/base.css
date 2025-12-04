@@ -18,7 +18,8 @@
   --vt-c-text-light-1: var(--vt-c-indigo);
   --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
   --vt-c-text-dark-1: var(--vt-c-white);
-  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+  /*--vt-c-text-dark-2: rgba(235, 235, 235, 0.8);*/
+  --vt-c-text-dark-2: #fefffc;
 
   /* app 首页背景色 - start */
   --app-gradient-l-1: rgba(253, 253, 207, 0.5);
@@ -41,21 +42,26 @@
 
 
   /* 左侧导航选中-停留 start */
-  --left-menu-active-1: #fcfaf0;
+  /*--left-menu-active-1: #fcfaf0;*/
   --left-menu-active-1: rgba(249, 182, 117, 0.4);
   --left-menu-active-2: rgba(160, 105, 253, 0.4);
   --left-menu-active-3: #fcfaf1;
 
-  --left-menu-hover-d: rgba(240, 161, 165, 0.8);
-  --left-menu-active-1-d: rgba(240, 161, 165, 0.8);
-  --left-menu-active-2-d: rgba(147, 120, 237, 0.8);
-  --left-menu-active-3-d: rgba(116, 156, 181, 0.8);
+
+  --left-menu-active-1-d: #c249eb;
+  --left-menu-active-2-d: rgba(194, 73, 235, 0.5);
+  --left-menu-active-3-d: #3967aa;
   /* 左侧导航选中-停留 end */
 
+
+  --headerPage-background: #e3e3e33d;
+  --headerPage-box-shadow: #f2ebe4;
+  --headerPage-background-d: #0000002e;
+  --headerPage-box-shadow-d: #252251;
 }
 
 /* 此项目的语义颜色变量 */
-:root {
+.light {
   --color-background: var(--vt-c-white);
   --color-background-soft: var(--vt-c-white-soft);
   --color-background-mute: var(--vt-c-white-mute);
@@ -78,10 +84,13 @@
   --left-menu-active-attr-1: var(--left-menu-active-1);
   --left-menu-active-attr-2: var(--left-menu-active-2);
   --left-menu-active-attr-3: var(--left-menu-active-3);
+
+  --them-headerPage-background: var(--headerPage-background);
+  --them-headerPage-box-shadow: var(--headerPage-box-shadow);
 }
 
-/* light */
-/*@media (prefers-color-scheme: dark) {
+/* !*light *!
+@media (prefers-color-scheme: dark) {
   :root {
     --color-background: var(--vt-c-black);
     --color-background-soft: var(--vt-c-black-soft);
@@ -113,11 +122,14 @@
   --left-menu-search-attr-1: var(--left-menu-search-1-d);
   --left-menu-search-attr-2: var(--left-menu-search-2-d);
 
-  --left-menu-hover-attr: var(--left-menu-hover-d);
+  /*--left-menu-hover-attr: var(--left-menu-hover-d);*/
 
   --left-menu-active-attr-1: var(--left-menu-active-1-d);
   --left-menu-active-attr-2: var(--left-menu-active-2-d);
   --left-menu-active-attr-3: var(--left-menu-active-3-d);
+
+  --them-headerPage-background: var(--headerPage-background-d);
+  --them-headerPage-box-shadow: var(--headerPage-box-shadow-d);
 }
 
 

@@ -1,14 +1,15 @@
 <template>
   <div class='layout-main'>
     <a-config-provider :theme='themes'>
-      <LeftMenu />
+      <!-- 桌面端显示LeftMenu -->
+      <LeftMenu v-if='!isMobile' />
       <MainPage />
     </a-config-provider>
   </div>
 </template>
 
 <script lang='ts' setup>
-import { computed } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { theme } from 'ant-design-vue'
 import LeftMenu from './default/LeftMenu/index.vue'
 import MainPage from './default/MainPage/index.vue'
@@ -17,6 +18,29 @@ import { useCounterStore } from '@/stores/counter.ts'
 
 const store = useCounterStore()
 const { isDark } = storeToRefs(store)
+
+// 移动端检测
+const isMobile = ref(false)
+
+// 检测是否为移动端
+const checkMobile = () => {
+  isMobile.value = window.innerWidth <= 768
+}
+
+// 监听窗口大小变化
+const handleResize = () => {
+  checkMobile()
+}
+
+onMounted(() => {
+  checkMobile()
+  window.addEventListener('resize', handleResize)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', handleResize)
+})
+
 const themes = computed(() => ({
   algorithm: isDark.value === 'light' ? theme.defaultAlgorithm : theme.darkAlgorithm,
   token: {
@@ -35,5 +59,11 @@ const themes = computed(() => ({
   // 左侧导航宽度
   --navWidth: 260px;
   --layoutMargin: 10px;
+
+  // 移动端布局调整
+  @media (max-width: 768px) {
+    flex-direction: column;
+    --layoutMargin: 5px;
+  }
 }
 </style>
