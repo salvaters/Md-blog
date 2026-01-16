@@ -88,7 +88,7 @@ const route = useRoute()
 const quickNavItems = ref([
   {
     name: 'home',
-    label: '主页',
+    label: '首页',
     icon: '/src/assets/svg/home.svg'
   },
   {
@@ -96,6 +96,11 @@ const quickNavItems = ref([
     label: '关于',
     icon: '/src/assets/svg/user.svg'
   }
+  // {
+  //   name: 'articles',
+  //   label: '文章',
+  //   icon: '/src/assets/svg/book.svg'
+  // },
   // {
   //   name: 'my',
   //   label: '我的',

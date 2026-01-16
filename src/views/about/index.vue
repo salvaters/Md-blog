@@ -5,7 +5,7 @@
       <div class='profile-card'>
         <div class='avatar-section'>
           <div class='avatar-wrapper'>
-            <img alt='Profile' class='avatar' src='../../../assets/images/user.jpg'>
+            <img alt='Profile' class='avatar' src='../../assets/images/user.jpg' />
             <div class='avatar-ring'></div>
           </div>
           <h1 class='name'>salvater</h1>
@@ -54,41 +54,11 @@
           </h2>
           <div class='section-content'>
             <div class='tech-grid'>
-              <div class='tech-item'>
+              <div v-for='(item, index) in technoLogList' :key='index' class='tech-item'>
                 <div class='tech-icon vue'>
-                  <Icon url='/src/assets/svg/vue.svg' />
+                  <Icon :url='item.icon' />
                 </div>
-                <span>Vue.js</span>
-              </div>
-              <div class='tech-item'>
-                <div class='tech-icon ts'>
-                  <Icon url='/src/assets/svg/ts.svg' />
-                </div>
-                <span>TypeScript</span>
-              </div>
-              <div class='tech-item'>
-                <div class='tech-icon node'>
-                  <Icon url='/src/assets/svg/node.svg' />
-                </div>
-                <span>Node.js</span>
-              </div>
-              <div class='tech-item'>
-                <div class='tech-icon css'>
-                  <Icon url='/src/assets/svg/css.svg' />
-                </div>
-                <span>CSS</span>
-              </div>
-              <div class='tech-item'>
-                <div class='tech-icon html'>
-                  <Icon url='/src/assets/svg/html.svg' />
-                </div>
-                <span>HTML</span>
-              </div>
-              <div class='tech-item'>
-                <div class='tech-icon js'>
-                  <Icon url='/src/assets/svg/js.svg' />
-                </div>
-                <span>JavaScript</span>
+                <span>{{ item.name }}</span>
               </div>
             </div>
           </div>
@@ -144,14 +114,14 @@
                 <span class='contact-icon'>📧</span>
                 <div class='contact-details'>
                   <h4>邮箱</h4>
-                  <a href='mailto:salvater@example.com'>salvater@example.com</a>
+                  <a href='mailto:salvater@foxmail.com'>salvater@foxmail.com</a>
                 </div>
               </div>
               <div class='contact-item'>
                 <span class='contact-icon'>🔗</span>
                 <div class='contact-details'>
                   <h4>GitHub</h4>
-                  <a href='#'>github.com/salvater</a>
+                  <a href='https://github.com/salvaters'>https://github.com/salvaters</a>
                 </div>
               </div>
             </div>
@@ -163,7 +133,7 @@
 </template>
 
 <script lang='ts' setup>
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import Icon from '@/components/Icon/index.vue'
 import { useCounterStore } from '@/stores/counter.ts'
 import { storeToRefs } from 'pinia'
@@ -174,51 +144,59 @@ const { isDark } = storeToRefs(store)
 // 计算主题相关的CSS变量
 const themeVars = computed(() => {
   return isDark.value === 'dark' ? {
-    '--color-bg-primary': '#1a1a1a',
-    '--color-bg-secondary': '#252525',
-    '--color-bg-card': '#2d2d2d',
+    // '--color-bg-primary': '#1a1a1a',
+    // '--color-text-tertiary': '#888888',
+    // '--gradient-secondary': 'linear-gradient(135deg, #613e97, #8f55d0)',
+    '--color-bg-secondary': '#52559c',
+    '--color-primary': '#4765a7',
     '--color-border': '#404040',
     '--color-text-primary': '#e8e8e8',
     '--color-text-secondary': '#b8b8b8',
-    '--color-text-tertiary': '#888888',
     '--color-heading': '#ffffff',
-    '--color-primary': '#4765a7',
     '--color-secondary': '#613e97',
     '--color-accent': '#8f55d0',
     '--gradient-primary': 'linear-gradient(135deg, #4765a7, #613e97)',
-    '--gradient-secondary': 'linear-gradient(135deg, #613e97, #8f55d0)',
     '--shadow-primary': '0 8px 32px rgba(71, 101, 167, 0.3)',
     '--shadow-secondary': '0 8px 32px rgba(97, 62, 151, 0.3)'
   } : {
-    '--color-bg-primary': '#fbf8ed',
-    '--color-bg-secondary': '#f7e8cf',
-    '--color-bg-card': '#ffffff',
+    // '--color-bg-primary': '#fbf8ed',
+    // '--color-accent': '#4765a7',
+    // '--color-text-tertiary': '#999999',
+    // '--gradient-secondary': 'linear-gradient(135deg, #f7e8cf, #ded0f2)',
+    '--color-bg-secondary': '#efe7f2',
+    '--color-primary': '#613e97',
     '--color-border': '#ded0f2',
     '--color-text-primary': '#333333',
     '--color-text-secondary': '#666666',
-    '--color-text-tertiary': '#999999',
     '--color-heading': '#2c2c2c',
-    '--color-primary': '#613e97',
     '--color-secondary': '#8f55d0',
-    '--color-accent': '#4765a7',
     '--gradient-primary': 'linear-gradient(135deg, #613e97, #8f55d0)',
-    '--gradient-secondary': 'linear-gradient(135deg, #f7e8cf, #ded0f2)',
     '--shadow-primary': '0 8px 32px rgba(97, 62, 151, 0.15)',
     '--shadow-secondary': '0 8px 32px rgba(143, 85, 208, 0.15)'
   }
 })
+
+
+const technoLogList = ref([
+  { name: 'Vue.js', icon: '/src/assets/svg/vue.svg' },
+  { name: 'TypeScript', icon: '/src/assets/svg/ts.svg' },
+  { name: 'Node.js', icon: '/src/assets/svg/node.svg' },
+  { name: 'CSS', icon: '/src/assets/svg/css.svg' },
+  { name: 'HTML', icon: '/src/assets/svg/html.svg' },
+  { name: 'JavaScript', icon: '/src/assets/svg/js.svg' }
+])
+
+
 </script>
 
 <style lang='less' scoped>
 .about-container {
   min-height: 100vh;
-  background: var(--color-bg-primary);
   position: relative;
   overflow-x: hidden;
 
 
   .about-content {
-    max-width: 1200px;
     margin: 0 auto;
     padding: 80px 20px;
     display: grid;
@@ -232,12 +210,12 @@ const themeVars = computed(() => {
   }
 
   .profile-card {
-    background: var(--color-bg-card);
     border-radius: 20px;
     padding: 40px;
     text-align: center;
     box-shadow: var(--shadow-primary);
     border: 1px solid var(--color-border);
+    height: fit-content;
 
     .avatar-section {
       margin-bottom: 30px;
@@ -348,7 +326,6 @@ const themeVars = computed(() => {
   }
 
   .section {
-    background: var(--color-bg-card);
     border-radius: 20px;
     padding: 30px;
     box-shadow: var(--shadow-primary);
@@ -532,12 +509,10 @@ const themeVars = computed(() => {
         }
 
         a {
-          color: var(--color-primary);
           text-decoration: none;
           transition: color 0.3s ease;
 
           &:hover {
-            color: var(--color-secondary);
             text-decoration: underline;
           }
         }

@@ -33,8 +33,8 @@ let categories = ref<string[]>([])
 // 点击导航
 const handleNav = (item: any) => {
   store.setCurrentNav(item)
-  // 跳转到首页显示对应的文章分类
-  router.push({ name: 'home' })
+  // 跳转到文章列表页显示对应的文章分类
+  router.push({ name: 'articles' })
 }
 
 // 加载导航数据
